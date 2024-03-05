@@ -1,6 +1,7 @@
 package com.jewel.learnspringAOP.AOPExamples.Aspects;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
@@ -19,8 +20,14 @@ public class LoggingAspects {
     //execution(* PACKAGE.*.*(..))
     //PACKAGE any method call howar age logMethodCall hobe, be carefull with ##SYNTAX
     @Before("execution(* com.jewel.learnspringAOP.AOPExamples.*.*.*(..))")
-    public void logMethodCall(JoinPoint joinPoint){
+    public void logMethodCallBeforeExecution(JoinPoint joinPoint){
         //4: logic - what
-        logger.info("Before Aspect - method is called -{}",joinPoint);
+        logger.info("logMethod call before The  :{ } is called",joinPoint);
+    }
+
+    @After("execution(* com.jewel.learnspringAOP.AOPExamples.*.*.*(..))")
+    public void logMethodCallAfterExecution(JoinPoint joinPoint){
+        //4: logic - what
+        logger.info("logMehod call after method has called :{ } ",joinPoint);
     }
 }
