@@ -1,10 +1,7 @@
 package com.jewel.learnspringAOP.AOPExamples.Aspects;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.AfterThrowing;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
@@ -26,11 +23,26 @@ public class LoggingAspects {
         logger.info("logMethod call before The  :{ } is called",joinPoint);
     }
 
+    @After("execution(* com.jewel.learnspringAOP.AOPExamples.*.*.*(..))")
+    public void logMethodCallafterExecution(JoinPoint joinPoint){
+        //4: logic - what
+        logger.info("logMethod call after The  :{ } is called",joinPoint);
+    }
+
     @AfterThrowing(
-            pointcut = "execution(* com.jewel.learnspringAOP.AOPExamples.*.*.*(..))"
-            ,throwing = "exception")
+            pointcut = "execution(* com.jewel.learnspringAOP.AOPExamples.*.*.*(..))",
+            throwing = "exception")
     public void logMethodCallAfterExecution(JoinPoint joinPoint,Exception exception){
         //4: logic - what
         logger.info("AfterThrowing aspects {} has thrown an exception { } ",joinPoint,exception);
     }
+
+    @AfterReturning(
+            pointcut = "execution(* com.jewel.learnspringAOP.AOPExamples.*.*.*(..))",
+            returning = "resultValue")
+    public void logMethodCallAfterSuccessfullExecution(JoinPoint joinPoint,Object resultValue){
+        //4: logic - what
+        logger.info("AfterReturning aspects {} has returned :  { } ",joinPoint,resultValue);
+    }
+
 }
