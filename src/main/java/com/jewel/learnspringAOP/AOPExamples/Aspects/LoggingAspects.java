@@ -17,20 +17,20 @@ public class LoggingAspects {
     //@Pointcut
     //execution(* PACKAGE.*.*(..))
     //PACKAGE any method call howar age logMethodCall hobe, be carefull with ##SYNTAX
-    @Before("execution(* com.jewel.learnspringAOP.AOPExamples.*.*.*(..))")
+    @Before("com.jewel.learnspringAOP.AOPExamples.Aspects.CommonPointCutConfig.bussinesPackageConfig()")
     public void logMethodCallBeforeExecution(JoinPoint joinPoint){
         //4: logic - what
-        logger.info("logMethod call before The  :{ } is called",joinPoint);
+        logger.info("logMethod call before The  { } is called",joinPoint);
     }
 
-    @After("execution(* com.jewel.learnspringAOP.AOPExamples.*.*.*(..))")
+    @After("com.jewel.learnspringAOP.AOPExamples.Aspects.CommonPointCutConfig.DataPackageConfig()")
     public void logMethodCallafterExecution(JoinPoint joinPoint){
         //4: logic - what
         logger.info("logMethod call after The  :{ } is called",joinPoint);
     }
 
     @AfterThrowing(
-            pointcut = "execution(* com.jewel.learnspringAOP.AOPExamples.*.*.*(..))",
+            pointcut = "com.jewel.learnspringAOP.AOPExamples.Aspects.CommonPointCutConfig.bussinesPackageConfig()",
             throwing = "exception")
     public void logMethodCallAfterExecution(JoinPoint joinPoint,Exception exception){
         //4: logic - what
@@ -38,7 +38,7 @@ public class LoggingAspects {
     }
 
     @AfterReturning(
-            pointcut = "execution(* com.jewel.learnspringAOP.AOPExamples.*.*.*(..))",
+            pointcut = "com.jewel.learnspringAOP.AOPExamples.Aspects.CommonPointCutConfig.DataPackageConfig()",
             returning = "resultValue")
     public void logMethodCallAfterSuccessfullExecution(JoinPoint joinPoint,Object resultValue){
         //4: logic - what

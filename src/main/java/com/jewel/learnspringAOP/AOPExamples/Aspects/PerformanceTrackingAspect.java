@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 public class PerformanceTrackingAspect {
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Around("execution(* com.jewel.learnspringAOP.AOPExamples.*.*.*(..))")
+    @Around("com.jewel.learnspringAOP.AOPExamples.Aspects.CommonPointCutConfig.bussinesAndDataPackageConfig()")
     public Object findExecutionTime(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         //start time
         //proceed execution of method
