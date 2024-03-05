@@ -15,4 +15,6 @@ public class CommonPointCutConfig {
     @Pointcut("bean(*Service*)")    //any beans which contains service, -> intercepts
     public void allPackageConfigusingBean(){}
 
+    @Pointcut("@annotation(com.jewel.learnspringAOP.AOPExamples.annotations.TrackTime)")
+    public void trackTimeAnnotation(){}
 }
