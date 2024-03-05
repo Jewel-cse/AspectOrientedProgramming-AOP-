@@ -17,7 +17,7 @@ public class LoggingAspects {
     //@Pointcut
     //execution(* PACKAGE.*.*(..))
     //PACKAGE any method call howar age logMethodCall hobe, be carefull with ##SYNTAX
-    @Before("com.jewel.learnspringAOP.AOPExamples.Aspects.CommonPointCutConfig.bussinesPackageConfig()")
+    @Before("com.jewel.learnspringAOP.AOPExamples.Aspects.CommonPointCutConfig.allPackageConfigusingBean()")
     public void logMethodCallBeforeExecution(JoinPoint joinPoint){
         //4: logic - what
         logger.info("logMethod call before The  { } is called",joinPoint);

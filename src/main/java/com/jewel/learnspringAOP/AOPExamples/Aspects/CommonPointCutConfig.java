@@ -12,4 +12,7 @@ public class CommonPointCutConfig {
     @Pointcut("execution(* com.jewel.learnspringAOP.AOPExamples.Data.*.*(..))")
     public void DataPackageConfig(){}
 
+    @Pointcut("bean(*Service*)")    //any beans which contains service, -> intercepts
+    public void allPackageConfigusingBean(){}
+
 }
